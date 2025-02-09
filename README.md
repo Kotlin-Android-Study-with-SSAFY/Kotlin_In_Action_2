@@ -32,7 +32,7 @@
 - 나머지 부분은 ⇒ 개인 학습을 권장
 
 ## 멤버
-| <a href="https://github.com/ois0886"><img src="https://avatars.githubusercontent.com/u/58154638?v=4" width="90" height="90"></a> |  |  |  |
+|  |  |  |  |
 | ----- | ----- | ----- | ----- |
 | [박승준] | [최지원] | [최지윤] | [이종현] |
 
