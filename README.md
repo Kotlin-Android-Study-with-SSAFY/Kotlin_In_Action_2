@@ -1,5 +1,10 @@
 # SSAFY 13기 코틀린 인 액션 스터디(B)
 
+## 멤버
+| <a href="https://github.com/ootr47"><img src="https://avatars.githubusercontent.com/u/83055885?v=4" width="90" height="90"></a> | <a href="https://github.com/zziwonCHOI"><img src="https://avatars.githubusercontent.com/u/128473259?v=4" width="90" height="90"></a> | <a href="https://github.com/2-jjong"><img src="https://avatars.githubusercontent.com/u/127838675?v=4" width="90" height="90"></a> | <a href="https://github.com/cheonjiyun"><img src="https://avatars.githubusercontent.com/u/70828192?v=4" width="90" height="90"></a> |
+| ----- | ----- | ----- | ----- |
+| [박승준](https://github.com/ois0886) | [최지원](https://github.com/zziwonCHOI) | [이종현](https://github.com/HeoJamong) | [천지윤](https://github.com/cheonjiyun) |
+
 ## 진행 방식
 - 매주 한 챕터 ~ 한 주제로 스터디를 진행
 - 책은 **“코틀린 인 액션”** 으로 진행
@@ -11,15 +16,7 @@
     4. 서로 질의 응답을 통해서 자유 발언 형식으로 **Deep Dive하게** 나아갈 예정입니다. 
     5. 예상 진행은 2시간으로 잡았지만, 쉬운 구간은 좀 더 빨리 끝날 수 도 있고, 어려운 구간은 더 시간이 걸릴 수 도 있고, 너무 어려워서 질문이 나오지 않을 경우 더 빨리 끝날수도 있습니다.
     6. 그리고 정리본과 스터디에서 공부했던 내용을 **하나로 규합하여 다시 ReadME로 업로드할 예정**
-
-## 디렉토리 구조 (Ex)
-```bash
-├── 1장. 코틀린이란 무엇이며, 왜 필요한가?
-│   ├── READMe.md(정리본)
-│   ├── 박승준
-│   ├── 홍길동
-│   └── 이순신
-```
+ 
 ## 진행
 - 1주차 : 1장. 코틀린이란 무엇이며, 왜 필요한가? ~ 2장. 코틀린 기초
 - 2주차 : 3장. 함수 정의와 호출 ~ 4장. 클래스, 객체, 인터페이스
@@ -29,10 +26,5 @@
 - 6주차 : 8장. 고차 함수: 파라미터와 반환 값으로 람다 사용
 - 7주차 : 9장. 제네릭스
 - 8주차 : 10장. 애노테이션과 리플렉션
-- 나머지 부분은 ⇒ 개인 학습을 권장
-
-## 멤버
-|  |  |  |  |
-| ----- | ----- | ----- | ----- |
-| [박승준] | [최지원] | [최지윤] | [이종현] |
+- 나머지 부분은 ⇒ 개인 학습
 
