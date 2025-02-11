@@ -3,7 +3,7 @@
 ## 멤버
 | <a href="https://github.com/ootr47"><img src="https://avatars.githubusercontent.com/u/83055885?v=4" width="90" height="90"></a> | <a href="https://github.com/zziwonCHOI"><img src="https://avatars.githubusercontent.com/u/128473259?v=4" width="90" height="90"></a> | <a href="https://github.com/2-jjong"><img src="https://avatars.githubusercontent.com/u/127838675?v=4" width="90" height="90"></a> | <a href="https://github.com/cheonjiyun"><img src="https://avatars.githubusercontent.com/u/70828192?v=4" width="90" height="90"></a> |
 | ----- | ----- | ----- | ----- |
-| [박승준](https://github.com/ois0886) | [최지원](https://github.com/zziwonCHOI) | [이종현](https://github.com/HeoJamong) | [천지윤](https://github.com/cheonjiyun) |
+| [박승준](https://github.com/ootr47) | [최지원](https://github.com/zziwonCHOI) | [이종현](https://github.com/2-jjong) | [천지윤](https://github.com/cheonjiyun) |
 
 ## 진행 방식
 - 매주 한 챕터 ~ 한 주제로 스터디를 진행
