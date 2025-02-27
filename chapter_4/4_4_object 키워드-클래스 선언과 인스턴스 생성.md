@@ -182,7 +182,7 @@ class Person(val name:String){
 >>> person.name
 Dmitry
 
->>> person2=Person.fromJSOM("{name:'Brent'}")
+>>> person2=Person.fromJSON("{name:'Brent'}")
 >>> person2.name
 Brent
 ```
