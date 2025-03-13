@@ -82,11 +82,9 @@ fun alphabet() = StringBuilder().apply {
 
 ```kotlin
 fun createViewWithCustomAttributes(context: Context) = TextView(context).apply {
-	TextView(context).apply {
-		text = "Sample Text"
-		textSize = 20.0
-		setPadding(10, 0, 0, 0)
-	}
+	text = "Sample Text"
+	textSize = 20.0
+	setPadding(10, 0, 0, 0)
 }
 ```
 
