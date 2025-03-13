@@ -8,7 +8,7 @@
 
 코틀린은 `with`라는 라이브러리 함수를 통해 어떤 객체의 이름을 반복하지 않고도 그 객체에 대해 다양한 연산을 수행할 수 있는 기능을 제공한다.
 
-`with`을 사용하지 않은 경우
+`with`를 사용하지 않은 경우
 
 ```kotlin
 fun alphabet () : String {
@@ -25,7 +25,7 @@ ABCEDFGHIJKLMNOPQRSTUWXYZ
 Now I Know the alphabet!
 ```
 
-`with`을 사용한 경우
+`with`를 사용한 경우
 
 ```kotlin
 fun alphabet () : String {
