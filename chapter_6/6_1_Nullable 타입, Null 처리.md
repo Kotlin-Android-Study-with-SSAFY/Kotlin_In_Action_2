@@ -64,7 +64,7 @@ fun strLenSafe(s: String?) = s.length()
 널이 될 수 **없는** 타입에도 대입할 수 없다.
 널이 될 수 없는 타입의 파라미터에도 넘길 수 없다.
 
-```
+```kotlin
 val x: String? = null
 var y: String = x
 // ERROR: Type mismatch: inferred type is String? but String was expected
@@ -76,14 +76,23 @@ strLen(x)
 그렇다면 널이 될 수 있는 타입에 메서드를 사용하려면 어떻게 해야할까?
 -> null을 비교하면 된다. null과 비교하고 나면 컴파일러가 null이 아님을 기억한다.
 
+Q. 아래 println에 무엇이 출력될까요?
+
 ```kotlin
 fun strLenSafe(s: String?): Int =
     if (s != null) s.length else 0 // null 검사를 추가하면 코드가 컴파일 된다.
 
 val x: String? = null
-println(strLenSafe(x)) // 0
-println(strLenSafe("abc")) // 3
+println(strLenSafe(x)) 
+println(strLenSafe("abc")) 
 ```
+
+<br/>
+
+${\textsf{\color{gray}답}}$
+${\textsf{\color{gray}0}}$
+${\textsf{\color{gray}3}}$
+
 
 만약 널을 다루기 위해서 if문은 다 써야한다면 코드가 번잡해질 것이다.
 다행히 코틀린에서는 널이 될 수 있는 값을 다룰 때 도움이 되는 도구들을 제공한다.
@@ -95,25 +104,23 @@ println(strLenSafe("abc")) // 3
 왜 변수에 타입을 지정해야 하는 걸까?
 위키피디아 글에서는 "타입은 분류(classification)로 ... 타입은 어떤 값들이 가능한지와 그 타입에 대해 수행할 수 있는 연산의 종류를 결정한다." 라고 되어있다.
 
-double타입을 살펴보자.
-dobule은 64비트 부동소수점 수다.
-일반 연산을 수행할 수 있는 double타입에 속한 값이라면 어떤 값이든 관계없이 일반 수학 연산 함수를 적용할 수 있다.
-달리말하면, double타입 변수가 있고, 컴파일러가 그 변수의 연산을 통과시킨 경우 그 연산이 성공적으로 실행되리란 사실을 확신할 수 있다.
+double타입을 살펴보자. double타입에 속한 값이라면 어떤 값이든 관계없이 일반 수학 연산 함수를 적용할 수 있다.
+따라서, double타입 변수가 있다 -> 컴파일러가 그 변수의 연산을 통과 -> 그 연산이 성공적으로 실행되리란 사실을 확신할 수 있다.
+double은 null이 안된다.
 
-double과 달리 String타입 변수에는 String과 null 두가지 종류가 들어갈 수 있다.
+double과 달리 자바의 String타입 변수에는 String과 null 두가지 종류가 들어갈 수 있다.
 
-하지만 이 두 종류는 완전히 다르다.
-자바에서 instanceof 연산자도 null이 String이 아니라고 답한다.
+❗**하지만 이 두 종류는 완전히 다르다.**
+자바에서 instanceof 연산자도 null이 String이 아니라고 답한다. null인 경우 사용할 수 있는 연산자가 많지 않다.
 
-null인 경우 사용할 수 있는 연산자가 많지 않다. 그럼에도 null이 함께 들어 갈 수 있다는 점이 오류 가능성을 높인다.
-널 여부를 추가로 검사하기 전에는 연산을 수행할 수 있는지 알 수 없다.
-널이 아니라는 점을 확신하고 검사를 생략하지만, 생각이 틀려서 실행 시점에 오류가 생기는 경우가 많다.
+그럼에도 null이 함께 들어 갈 수 있다는 점이 오류 가능성을 높인다. 널 여부를 추가로 검사하기 전에는 연산을 수행할 수 있는지 알 수 없다.
+실행 시점에 오류가 생기는 경우가 많다.
 
 ---
 
 물론 자바에도 NullPointerException 문제를 해결하는 데 도움을 주는 도구가 있다.
 `@Nullable` `@NotNull` 애노테이션 를 사용하면 값이 널이 될 수 있는지 여부를 표시한다.
-하지만 모든 곳에 애노테이션을 추가하는 일이 쉽지 않고, 모든 NPE를 해겨할 수는 없었다.
+하지만 모든 곳에 애노테이션을 추가하는 일이 쉽지 않고, 모든 NPE를 해결할 수는 없었다.
 
 ---
 
@@ -144,22 +151,30 @@ printAllCaps(null) // null
 조금 복잡한 코드를 보자.
 managerName 함수는 이름이 null일 경우 null을 반환한다.
 
-```
+Q. 아래 println에 무엇이 출력될까요?
+
+```kotlin
 class Employee(val name: String, val manager: Emplyee?)
 fun managerName(employee: Employee): String? = emplyee.manager?.name
 
-val ceo = Employee("Da Boss", null)
 val developer = Employee("Bob Smitch", ceo)
-println(managerName(developer)) // Da Boss
-println(managerName(ceo)) // null
+val ceo = Employee("Da Boss", null)
+println(managerName(developer))
+println(managerName(ceo))
 ```
+
+${\textsf{\color{gray}답}}$
+
+${\textsf{\color{gray}Da Boss}}$
+
+${\textsf{\color{gray}null}}$
 
 조금더 복잡한 코드를 보자.
 아래처럼 `?.` 를 연쇄 사용할 수도 있다.
 
 아래는 회사가 null인 경우 null 대신 "Unknown" 문자열을 반환하는 함수를 구현했다.
 
-```
+```kotlin
 class Address(val streetAddress: String, val zipCode: Int, val city: String, val country: String)
 
 class Company(val name: String, val address: Address?)
@@ -174,7 +189,9 @@ fun Person.countryName(): String{
 
 ## 4. 엘비스 연산자: ?:
 
-앨비스 연산자를 사용하면 null을 체크하는 if문도 없앨 수 있다.
+?. 는 null일 때 실행을 안하는 연산자였다면, null일 때 다른 값을 반환하고 싶을 수도 있다.
+
+앨비스 연산자를 사용하면 null을 체크하는 if문을 아예 없앨 수 있다.
 이를 도와주는 연산자가 앨비스 연산자 `?:` 이고, null coalescing이라고도 한다.
 앨비스 연잔자를 시계방향으로 90 돌리면 앨비스 프레슬리(Elvis Presley) 헤어 스타일이 보여서 엘비르 연산자라고 불린다...
 
@@ -193,11 +210,20 @@ fun foo(s: String?){
 간단한 예시를 보자. s가 null이면 길이를 반환, null 이면 0을 반환한다.
 반환값이 Int? 일 필요가 없다.
 
+Q. 아래 println에 무엇이 출력될까요?
+
 ```kotlin
 fun strLenSafe(s: String?): Int = s?.length ?: 0
-println(strLenSafe("abc")) // 3
-println(strLenSafe(null)) // 0
+println(strLenSafe("abc"))
+println(strLenSafe(null))
 ```
+
+${\textsf{\color{gray}답}}$
+
+${\textsf{\color{gray}3}}$
+
+${\textsf{\color{gray}0}}$
+
 
 `?:`를 사용하면 `?.` 에서 보았던 예시를 더 짧게 쓸 수 있다.
 
@@ -212,7 +238,7 @@ fun Person.countryName(): String{
 fun Person.countryName() = company?.address?.country ?: "Unknown"
 ```
 
-앨비스 연산자를 이용한 복잡한 예시를 보자.
+앨비스 연산자를 이용한 복잡한 예시를 보자. 주소가 없으면 예외를 발생시킨다.
 
 ```kotlin
 class Address(val streetAddress: String, val zipCode: Int, val city: String, val country: String)
@@ -281,7 +307,7 @@ val test2 = kim as Person // java.lang.ClassCastException
         return false;
       if (getClass() != obj.getClass())
         return false;
-      Person other = (Person) obj;
+      Person other = (Person) obj; // 명시적으로로 바꾸어주어야함
       if (!getEnclosingInstance().equals(other.getEnclosingInstance()))
         return false;
       return Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName);
@@ -339,6 +365,8 @@ person.company!!.address!!.country
 하지만 컴파일러는 selectedValue가 null이 아닌지 알 수 없다.
 따라서 개발자가 null이 아니라는 것을 알고 있으니 `!!`를 통해 널이 아니라고 말할 수 있다.
 
+isEnabled가 true -> actionPerformed 호출
+
 ```kotlin
 class copyRowAction(val list: JList<String>) : AbstractAction(){
     override fun isEnabled(): Boolean = list.selectedValue != null
@@ -351,7 +379,7 @@ class copyRowAction(val list: JList<String>) : AbstractAction(){
 ## 7. let 함수
 
 let함수를 통해 널이 아닌지 검사한 후 변과를 변수에 넣는 작업을 간단하게 할 수 있다.
-아래 코드에서 email 변수를 넘기고 싶은데 nullable이라 넘길 수 없다.
+아래 코드에서 email 변수를 넘기고 싶은데 nullable이라 넘길 수 없다. 어떻게 해야할까?
 넘기고 싶다면 if문을 통해 검사를 해야한 넘길 수 있다.
 
 ```kotlin
@@ -382,3 +410,6 @@ if (person != null) sendEmailTo(person.email)
 
 getTheBestPersonInTheWorld()?.let { sendEmailTo(it.email) }
 ```
+
+
+그냥 let에 ?만 더한 것.
