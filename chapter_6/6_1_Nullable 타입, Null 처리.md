@@ -41,7 +41,7 @@ strLen(null) // ERROR: Null can not be a value of a non-null type String
 s의 타입은 String이기에 항상 String 인스턴스여야 한다는 뜻이다.
 
 만약 null을 받을 수 있게 하려면 타입 이름뒤에 물음표(?)를 명시해야 한다.
-어떤 타입이든 타입 이름 뒤에 물음표를 붙이면 프로퍼티에 null 찹조를 저장할 수 있다는 뜻이다.
+어떤 타입이든 타입 이름 뒤에 물음표를 붙이면 프로퍼티에 null 참조를 저장할 수 있다는 뜻이다.
 
 ```kotlin
 fun strLenSafe(s: String?) =  ...
