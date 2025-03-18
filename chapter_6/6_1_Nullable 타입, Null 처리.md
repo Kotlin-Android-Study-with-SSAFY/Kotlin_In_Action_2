@@ -157,17 +157,20 @@ Q. 아래 println에 무엇이 출력될까요?
 class Employee(val name: String, val manager: Emplyee?)
 fun managerName(employee: Employee): String? = emplyee.manager?.name
 
-val developer = Employee("Bob Smitch", ceo)
+
 val ceo = Employee("Da Boss", null)
+val developer = Employee("Bob Smitch", ceo)
 println(managerName(developer))
 println(managerName(ceo))
+
 ```
 
 ${\textsf{\color{gray}답}}$
 
+${\textsf{\color{gray}null}}$
+
 ${\textsf{\color{gray}Da Boss}}$
 
-${\textsf{\color{gray}null}}$
 
 조금더 복잡한 코드를 보자.
 아래처럼 `?.` 를 연쇄 사용할 수도 있다.
