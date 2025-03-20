@@ -52,7 +52,7 @@ class MyTest {
 
 **주의 사항**
 
-- **`lateinit`** 프로퍼티는 항상 **`var`**이어야 한다. (**`val`**은 불가능)
+- **`lateinit`** 프로퍼티는 항상 `var`이어야 한다. (`val`은 불가능)
 - 초기화 전에 접근하면 **`"lateinit property has not been initialized"`**라는 명확한 예외가 발생한다.
 - DI 프레임워크와 함께 자주 사용된다.
 
