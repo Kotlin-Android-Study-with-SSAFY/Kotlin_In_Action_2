@@ -79,8 +79,8 @@ verifyUserInput(null)  // 출력: Please fill in the required fields
 fun String?.isNullOrBlank(): Boolean = this == null || this.isBlank()
 ```
 
-- 확장 함수 내부에서는 **`this`**가 널일 수 있으므로 명시적으로 널 검사를 해야 한다.
-- 자바와 달리 코틀린에서는 널이 될 수 있는 타입의 확장 함수 내부에서 **`this`**가 널일 수 있다.
+- 확장 함수 내부에서는 **`this`** 가 널일 수 있으므로 명시적으로 널 검사를 해야 한다.
+- 자바와 달리 코틀린에서는 널이 될 수 있는 타입의 확장 함수 내부에서 **`this`** 가 널일 수 있다.
 
 ## **타입 파라미터의 널 가능성**
 
@@ -108,11 +108,11 @@ fun <T : Any> printHashCode(t: T) {
 // printHashCode(null) 호출 시 컴파일 에러 발생
 ```
 
-- 타입 파라미터가 절대 널이 아님을 보장하려면 반드시 **`T : Any`**와 같이 상한을 지정해야 한다.
+- 타입 파라미터가 절대 널이 아님을 보장하려면 반드시 **`T : Any`** 와 같이 상한을 지정해야 한다.
 
 ## **널 가능성과 자바 (플랫폼 타입)**
 
-자바에는 애노테이션으로 표시된 널 가능성 정보가 있다. `@Nullable String`은 코틀린에서 `String?`와 같고 `@NotNull String`은 `String`과 같다. 하지만 자바는 기본적으로 널 가능성 정보를 제공하지 않는다. 따라서 코틀린은 자바에서 가져온 타입을 **플랫폼 타입(platform type)**으로 취급한다.
+자바에는 애노테이션으로 표시된 널 가능성 정보가 있다. `@Nullable String`은 코틀린에서 `String?`와 같고 `@NotNull String`은 `String`과 같다. 하지만 자바는 기본적으로 널 가능성 정보를 제공하지 않는다. 따라서 코틀린은 자바에서 가져온 타입을 **플랫폼 타입(platform type)** 으로 취급한다.
 
 ### **플랫폼 타입의 특징**
 
